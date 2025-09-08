@@ -1,23 +1,4 @@
-// Queue operations work as follows:
-
-// two pointers FRONT and REAR
-// FRONT track the first element of the queue
-// REAR track the last element of the queue
-// initially, set value of FRONT and REAR to -1
-
-// Enqueue Operation
-// check if the queue is full
-// for the first element, set the value of FRONT to 0
-// increase the REAR index by 1
-// add the new element in the position pointed to by REAR
-
-// Dequeue Operation
-// check if the queue is empty
-// return the value pointed by FRONT
-// increase the FRONT index by 1
-// for the last element, reset the values of FRONT and REAR to -1
-
-class Queue {
+class SimpleQueue {
   constructor(capacity) {
     this.capacity = capacity;
     this.items = [];
@@ -68,7 +49,7 @@ class Queue {
   }
 }
 
-const queue = new Queue(2);
+const queue = new SimpleQueue(2);
 queue.enqueue(10);
 queue.enqueue(20);
 queue.dequeue();
