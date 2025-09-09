@@ -6,11 +6,14 @@ class SimpleQueue {
     this.rear = -1;
   }
 
+  // add value to the queue
   enqueue(value) {
+    // check if queue is full
     if (this.rear === this.capacity - 1) {
       console.log("Queue is full!");
       return;
     }
+    // check if it's the first value to be added
     if (this.front === -1 && this.rear === -1) {
       this.front++;
       this.rear++;
@@ -23,11 +26,14 @@ class SimpleQueue {
     console.log(this.items, `-> ${value} added.`);
   }
 
+  // remove a value in the queue
   dequeue() {
+    // check if the queue is empty
     if (this.front > this.rear) {
       console.log("The queue is already empty.");
       return;
     }
+    // check if it's the last value
     if (this.front === this.rear) {
       let removedValue = this.items[this.front];
       this.front = -1;
@@ -42,6 +48,7 @@ class SimpleQueue {
     return removedValue;
   }
 
+  // take the front value in the queue
   peek() {
     let frontValue = this.items[this.front];
     console.log(`${frontValue} is the front value.`);
