@@ -95,7 +95,7 @@ class LinkedList {
       console.log(indexArray);
       return indexArray;
     } else {
-      console.log(`No ${data} found in the list.`);
+      console.log(`${data} not found in the list.`);
     }
   }
 
@@ -130,6 +130,67 @@ class LinkedList {
     console.log(`${removedData.data} removed.`);
     return removedData;
   }
+
+  removeAt(index) {
+    if (this.head === null) {
+      console.log("Empty list.");
+      return;
+    }
+    if (index === 0) {
+      const removedData = this.head.data;
+      this.head = this.head.next;
+      console.log(`${removedData} removed.`);
+      return removedData;
+    }
+    let currentNode = this.head;
+    let prevNode = null;
+    let count = 0;
+    while (currentNode !== null && count < index) {
+      prevNode = currentNode;
+      currentNode = currentNode.next;
+      count++;
+    }
+    if (currentNode === null) {
+      console.log(`${index} is not a valid index.`);
+      return;
+    }
+    prevNode.next = currentNode.next;
+    console.log(`${currentNode.data} removed.`);
+    return currentNode;
+  }
+
+  contains(data) {
+    if (this.head === null) {
+      console.log("Empty list.");
+      return;
+    }
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      if (currentNode.data === data) {
+        console.log(`${data} is in the list.`);
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    console.log(`${data} is not in the list.`);
+    return false;
+  }
+
+  reverse() {
+    if (this.head === null) {
+      console.log("Empty list.");
+      return;
+    }
+    const reversedList = new LinkedList();
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      reversedList.prepend(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    reversedList.display();
+    return reversedList;
+  }
 }
 
 const list = new LinkedList();
@@ -137,21 +198,5 @@ list.append(5);
 list.append(3);
 list.append(2);
 list.append(7);
-list.prepend(1);
-list.prepend(3);
 list.display();
 list.size();
-list.removeFirst();
-list.removeLast();
-list.display();
-list.size();
-list.append(9);
-list.display();
-list.size();
-list.removeLast();
-list.removeLast();
-list.removeLast();
-list.removeLast();
-list.removeLast();
-list.removeLast();
-list.display();
