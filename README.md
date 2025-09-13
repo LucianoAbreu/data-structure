@@ -28,7 +28,7 @@ Although data structures are often studied in C++ or Java, implementing them in 
 Clone this repository and run any of the `.js` files with Node.js:
 
 ```bash
-node linkedlist.js
+node stack.js
 ```
 
 - Or you can use [Code Runner](https://marketplace.cursorapi.com/items/?itemName=formulahendry.code-runner) on your IDE (Integrated Development Environment)
